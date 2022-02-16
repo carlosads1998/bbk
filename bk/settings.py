@@ -26,10 +26,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG',default=False, cast = bool)
+SECRET_KEY ='7+o@h_z@m7w2vkj*88hco7(s!)%+t&urq2g)#eh&whfz3kdk@c'
 
-ALLOWED_HOSTS = []
+DEBUG = False
+
+ALLOWED_HOSTS = ['afternoon-sands-44284.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -81,13 +82,12 @@ TEMPLATES = [
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-from dj_database_url import parse as dburl
-default_dburl = 'sqlite:///' +os.path.join(BASE_DIR, 'db.sqlite3')
-
 DATABASES = {
-    'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
-             }
-
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'bk',
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -112,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'America/Sao_Paulo'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -135,6 +135,6 @@ REST_FRAMEWORK= {
 
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_ROOT = os.path.joing(BASE_DIR, 'staticfiles')
+
 
 django_on_heroku.settings(locals())
