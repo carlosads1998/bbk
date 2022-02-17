@@ -30,7 +30,7 @@ SECRET_KEY ='7+o@h_z@m7w2vkj*88hco7(s!)%+t&urq2g)#eh&whfz3kdk@c'
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://bbk-api.herokuapp.com/', '127.0.0.1:8000']
+ALLOWED_HOSTS = ['bbk-api.herokuapp.com/', 'localhost:8000']
 
 
 # Application definition
@@ -137,3 +137,4 @@ REST_FRAMEWORK= {
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 django_on_heroku.settings(locals())  
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
