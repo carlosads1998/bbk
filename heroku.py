@@ -1,5 +1,5 @@
 import environ
-from bk.settings.base import *
+from bk.settings import *
 
 env = environ.Env()
 
