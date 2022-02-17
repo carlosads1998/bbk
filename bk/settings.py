@@ -27,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY ='7+o@h_z@m7w2vkj*88hco7(s!)%+t&urq2g)#eh&whfz3kdk@c'
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['bbk-api.herokuapp.com/', 'localhost:8000']
 
