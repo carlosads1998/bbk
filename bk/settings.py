@@ -81,12 +81,14 @@ TEMPLATES = [
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-from dj_database_url import parse as dburl
-default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
 DATABASES = {
-    'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
-             }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -134,7 +136,8 @@ REST_FRAMEWORK= {
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
 django_on_heroku.settings(locals())  
 #STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
